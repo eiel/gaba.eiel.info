@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  user: root
+  host: localhost
   database: gaba_development
 
 # Warning: The database defined as "test" will be erased and
@@ -19,6 +19,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: localhost
   database: gaba_test
 
 production:
