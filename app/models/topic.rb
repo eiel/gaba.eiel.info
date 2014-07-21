@@ -14,7 +14,7 @@ class Topic < ActiveRecord::Base
 
   def content
     <<STRING
-<h1>我馬のサイトの更新がありました。<h1>
+<h1>我馬のサイトに更新がありました。<h1>
 <p><a href="#{url}" title="#{title}"}>#{title}</a></p>
 STRING
   end
