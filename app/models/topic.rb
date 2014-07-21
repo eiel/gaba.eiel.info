@@ -7,4 +7,19 @@ class Topic < ActiveRecord::Base
                          created_at: topic[:date])
     end
   end
+
+  def url
+    "http://www.gaba-2000.com/news.php?q=#{id}"
+  end
+
+  def content
+    <<STRING
+<h1>我馬のサイトの更新がありました。<h1>
+<p><a href="#{url}" title="#{title}"}>#{title}</a></p>
+STRING
+  end
+
+  def entry_id
+    "topics/#{id}"
+  end
 end
