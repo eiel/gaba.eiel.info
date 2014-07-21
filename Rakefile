@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+desc 'deploy application'
+task :deploy do
+  sh 'git push heroku'
+end
