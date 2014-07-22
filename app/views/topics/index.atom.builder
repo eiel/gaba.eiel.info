@@ -2,8 +2,8 @@ atom_feed(:language => 'ja-JP',
           :root_url => @site_url,
           :url      => @atom_url,
           :id       => @site_url) do |feed|
-  feed.title    @site_title
-  feed.subtitle @site_description
+  feed.title    Site.name
+  feed.subtitle Site.description
   feed.updated  Time.now
   feed.author{|author| author.name(@author) }
 

@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    - set_meta_tags site: Site.name
+    - set_meta_tags keywords: %w[我馬 広島 すごい広島]
+    - set_meta_tags description: Site.description
+    = display_meta_tags
+    = auto_discovery_link_tag :atom, controller: :topics, format: :atom
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    meta
+  body
+    = yield
