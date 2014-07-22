@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'coveralls', require: false
 gem 'gaba'
 gem 'meta-tags'
 gem 'rails_12factor', group: :production

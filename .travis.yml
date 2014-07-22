@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+- 2.1.2
+before_script:
+  bundle exec rake db:setup
+deploy:
+  provider: heroku
+  app:
+    master: gaba
+  api_key:
+    secure: ABPnjjII2swEq6tk1nIoTxDqLemRLSNBurHI4Zi4Ajk3CjNEc8YsK8eD0mkvgEwsRCk0m8JVXk3MDPhZ5nr9LHmZIFq7VGQIo8jn5qbiokWmg+jxbAdHDeT81weRmpG2YTgGr1OugrjXFXGghqFR6PX8DSzkVVsiaSINqom/LFU=
