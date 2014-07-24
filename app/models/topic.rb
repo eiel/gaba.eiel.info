@@ -1,8 +1,9 @@
 class Topic < ActiveRecord::Base
 
   after_save do
+    message = "我馬のサイトに更新があるね > #{title} #{url}"
     begin
-      twitter_client.update "我馬のサイトに更新があるね > #{title} #{url}"
+      twitter_client.update message
     rescue Twitter::Error::Forbidden => e
       Rails.logger.info("tweet error: " + e.message)
     end
