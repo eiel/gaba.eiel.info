@@ -1,5 +1,14 @@
 class Topic < ActiveRecord::Base
 
+  after_save do
+    message = "我馬のサイトに更新があるね > #{title} #{url}"
+    begin
+      twitter_client.update message
+    rescue Twitter::Error::Forbidden => e
+      Rails.logger.info("tweet error: " + e.message)
+    end
+  end
+
   def self.create_topic_from_website
     Gaba.new.to_hash.each do |topic|
       find_or_create_by!(id: topic[:artcile_id],
@@ -21,5 +30,14 @@ STRING
 
   def entry_id
     "topics/#{id}"
+  end
+
+  def twitter_client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = ENV["TWITTER_ACCESS_TOKEN"]
+      config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
+    end
   end
 end
