@@ -41,6 +41,7 @@ gem 'spring',        group: :development
 gem 'coveralls', require: false
 gem 'gaba'
 gem 'meta-tags'
+gem 'puma', group: :production
 gem 'rails_12factor', group: :production
 gem 'rspec-rails'
 gem 'slim'
