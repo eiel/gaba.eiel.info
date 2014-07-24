@@ -46,3 +46,4 @@ gem 'rails_12factor', group: :production
 gem 'rspec-rails'
 gem 'slim'
 gem "spring-commands-rspec", group: :development
+gem 'twitter'
