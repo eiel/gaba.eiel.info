@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
 class Topic < ActiveRecord::Base
+  USERS = %W{eielh NeXTSTEP2OSX}.freeze
 
   after_save do
-    message = "我馬のサイトに更新があるね > #{title} #{url}"
+    mentions = USERS.map { |user| "@#{user}"}.join(" ")
+
+    message = ".#{mentions} 我馬のサイトに更新があるね > #{title} #{url}"
     begin
       twitter_client.update message
     rescue Twitter::Error::Forbidden => e
